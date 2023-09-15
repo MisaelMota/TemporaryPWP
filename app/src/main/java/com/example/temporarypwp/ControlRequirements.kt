@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxColors
@@ -34,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.temporarypwp.Components.GenericButton
 import com.example.temporarypwp.Components.GenericCard
 import com.example.temporarypwp.Components.GenericDivider
 import com.example.temporarypwp.Components.GenericText
@@ -81,8 +83,7 @@ fun ControlRequirements() {
                         .padding(bottom = 20.dp)
                         .border(
                             2.dp,
-                            Color.Unspecified,
-                            RoundedCornerShape(30.dp)
+                            Color.Unspecified
                         ),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 1.dp
@@ -90,7 +91,8 @@ fun ControlRequirements() {
                     colors = CardDefaults.cardColors(
                         contentColor = MaterialTheme.colorScheme.onBackground,
                         containerColor = MaterialTheme.colorScheme.background
-                    )
+                    ),
+                    shape = RoundedCornerShape(30.dp)
                 )
                 {
                     Text(
@@ -151,7 +153,7 @@ fun ControlRequirements() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 480.dp, bottom = 20.dp),
+            .padding(top = 480.dp, bottom = 100.dp),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
@@ -171,7 +173,8 @@ fun ControlRequirements() {
                     colors = CardDefaults.cardColors(
                         contentColor = MaterialTheme.colorScheme.onBackground,
                         containerColor = MaterialTheme.colorScheme.background
-                    )
+                    ),
+                    shape = RoundedCornerShape(30.dp)
                 )
                 {
                     Text(
@@ -205,6 +208,31 @@ fun ControlRequirements() {
                 }
             }
         }
+    }
+
+    Row(
+        modifier = Modifier
+            .padding(30.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.Bottom
+
+    ) {
+        GenericButton(
+            onClick = { /*TODO*/ },
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary) ,
+            height =38 ,
+            width = 115,
+            text = "Cancelar",
+            imagePainter = null
+        )
+        GenericButton(
+            onClick = { /*TODO*/ },
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiary) ,
+            height =38,
+            width = 115,
+            text = "Siguiente",
+            imagePainter = null
+        )
     }
 
 

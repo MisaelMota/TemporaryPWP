@@ -190,7 +190,7 @@ fun ToDoList(repeatElement: Boolean, titleText: String, fieldText: String,addTex
             items(tasks) { task ->
                 GenericCard(
                     modifier = Modifier
-                        .padding(bottom = 20.dp)
+                        .padding(bottom = 40.dp)
                         .border(
                             2.dp,
                             MaterialTheme.colorScheme.primary,
@@ -203,7 +203,8 @@ fun ToDoList(repeatElement: Boolean, titleText: String, fieldText: String,addTex
                     colors = CardDefaults.cardColors(
                         contentColor = MaterialTheme.colorScheme.onBackground,
                         containerColor = MaterialTheme.colorScheme.background
-                    )
+                    ),
+                    shape = RoundedCornerShape(10.dp)
                 ) {
                     Row(
                         modifier = Modifier

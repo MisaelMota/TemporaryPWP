@@ -27,7 +27,8 @@ class MainActivity : ComponentActivity() {
                        "Participantes involucrados",
                        "Introduzca Nombre de usuario",
                        "+ Agregar participantes")*/
-                    ControlRequirements()
+                    //ControlRequirements()
+                    ResponseHistory()
                 }
             }
         }
