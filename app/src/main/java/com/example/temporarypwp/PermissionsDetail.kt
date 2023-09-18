@@ -48,7 +48,8 @@ fun PermissionsDetail() {
                 text = "Detalle de permisos",
                 sp = 20,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary
+                color = MaterialTheme.colorScheme.primary,
+                modifier = null
             )
 
             Box(modifier = Modifier.padding(start = 130.dp)) {
@@ -109,13 +110,15 @@ fun PermissionsDetail() {
                             text = cardText,
                             sp = 14,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onBackground
+                            color = MaterialTheme.colorScheme.onBackground,
+                            modifier = null
                         )
                         GenericText(
                             text = CardTextResponse[index],
                             sp = 14,
                             fontWeight = FontWeight.Normal,
-                            color = MaterialTheme.colorScheme.onBackground
+                            color = MaterialTheme.colorScheme.onBackground,
+                            modifier = null
                         )
 
                     }

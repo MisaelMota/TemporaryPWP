@@ -38,7 +38,8 @@ fun ResponseHistory() {
             text = "Historial de Respuestas",
             sp = 20,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.primary,
+            modifier = null
         )
     }
 
@@ -85,7 +86,7 @@ fun ResponseHistory() {
                             height = 150,
                             width = 150,
                             text = null,
-                            imagePainter = R.drawable.arrow_down_navigate
+                            imagePainter = R.drawable.arrow_down_navigate2
                         )
                     }
 

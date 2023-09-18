@@ -42,7 +42,7 @@ fun GenericButton(
             .size(width.dp, height.dp)
 
 
-        ) {
+    ) {
         if (text != null) {
             Text(text)
         }
@@ -55,14 +55,31 @@ fun GenericButton(
 
 @SuppressLint("MutableCollectionMutableState")
 @Composable
-fun GenericText(text: String, sp: Int, fontWeight: FontWeight, color: Color) {
+fun GenericText(
+    text: String,
+    sp: Int,
+    fontWeight: FontWeight,
+    color: Color,
+    modifier: Modifier?
 
-    Text(
-        text = text,
-        color = color,
-        fontSize = sp.sp,
-        fontWeight= fontWeight
-    )
+) {
+
+    if (modifier != null) {
+        Text(
+            text = text,
+            color = color,
+            fontSize = sp.sp,
+            fontWeight = fontWeight,
+            modifier = modifier
+        )
+    }else{
+        Text(
+            text = text,
+            color = color,
+            fontSize = sp.sp,
+            fontWeight = fontWeight
+        )
+    }
 }
 
 @Composable
@@ -72,7 +89,7 @@ fun GenericCard(
     colors: CardColors,
     shape: Shape?,
     content: @Composable () -> Unit
-){
+) {
     if (shape != null) {
         Card(
             modifier = modifier,
@@ -86,7 +103,7 @@ fun GenericCard(
 }
 
 @Composable
-fun GenericDivider(thickness:Int,color:Color){
+fun GenericDivider(thickness: Int, color: Color) {
     Divider(thickness = thickness.dp, color = color)
 }
 
@@ -94,13 +111,15 @@ val questionControlRequirements = listOf(
     "Requiere permiso de alto riesgo:",
     "Requiere bloqueo y etiquetado:",
     "Requiere acordonamiento y aviso:",
-    "Requiere permiso de chispa o flama:")
+    "Requiere permiso de chispa o flama:"
+)
 
 val questionSecurityEquipements = listOf(
     "Equipo basico de seguridad:",
     "Tengo los materiales adecuados",
     "Mascarilla para humos de soldadura:",
-    "Mascarilla para polvos:")
+    "Mascarilla para polvos:"
+)
 
 
 

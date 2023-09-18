@@ -53,7 +53,8 @@ fun ControlRequirements() {
             text = "Requisitos de Control",
             sp = 20,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.primary,
+            modifier = null
         )
     }
 
@@ -134,7 +135,8 @@ fun ControlRequirements() {
             text = "Equipo de Seguridad",
             sp = 20,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.primary,
+            modifier = null
         )
     }
 

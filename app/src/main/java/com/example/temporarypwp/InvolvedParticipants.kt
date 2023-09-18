@@ -82,7 +82,8 @@ fun ToDoList(repeatElement: Boolean, titleText: String, fieldText: String,addTex
             text = titleText,
             sp = 20,
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            modifier = null
         )
 
     }
