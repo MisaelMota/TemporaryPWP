@@ -9,10 +9,22 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.Close
+import androidx.compose.material.icons.outlined.Done
+import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,9 +42,27 @@ import com.example.temporarypwp.Components.GenericText
 @Composable
 fun PermissionHistory() {
 
-    val gradient = Brush.verticalGradient(
-        colors = listOf(Color.Transparent, Color(0xFFAEF4A0))
+    val IDPermiso = listOf("000000", "111111", "222222", "333333", "444444", "555555")
+    val Descripcion = listOf(
+        "Permiso de prueba",
+        "Permiso de prueba",
+        "Permiso de prueba",
+        "Permiso de prueba",
+        "Permiso de prueba",
+        "Permiso de prueba"
     )
+    val Area = listOf("Operaciones", "Envase", "Horno", "Mantenimiento", "Mantenimiento", "Mantenimiento")
+    val Status = listOf("Aprobado", "Cancelado", "Revisado", "Cancelado", "Cancelado","Pendiente")
+    val Date = listOf("12/02/23", "12/02/23", "12/02/23", "12/02/23", "12/02/23", "12/02/23")
+
+    val gradient = Brush.verticalGradient(
+        colorStops = arrayOf(
+            0.253f to Color(0x41F1F0F0),
+            0.6f to MaterialTheme.colorScheme.surfaceTint
+        )
+    )
+
+
 
     Box(
         modifier = Modifier
@@ -75,71 +105,147 @@ fun PermissionHistory() {
         contentAlignment = Alignment.TopCenter
     ) {
 
-        Column() {
-            GenericCard(
-                modifier = Modifier
-                    .padding(top = 20.dp)
-                    .width(360.dp)
-                    .height(135.dp),
-                elevation = CardDefaults.cardElevation(
-                    defaultElevation = 1.dp
-                ),
-                colors = CardDefaults.cardColors(
-                    contentColor = MaterialTheme.colorScheme.onBackground,
-                    containerColor = MaterialTheme.colorScheme.background
-                ),
-                shape = RoundedCornerShape(size = 15.dp)
-            ) {
-
-                Column(
-                    Modifier
-                        .background(brush = gradient)
-                        .height(150.dp)
-                        .padding(start = 10.dp)
-                        .fillMaxWidth()
+        Column(
+            modifier = Modifier
+                .padding(bottom = 20.dp)
+                .verticalScroll(rememberScrollState())
+        ) {
+            IDPermiso.forEachIndexed { index, ID ->
+                GenericCard(
+                    modifier = Modifier
+                        .padding(top = 20.dp)
+                        .width(360.dp)
+                        .height(135.dp),
+                    elevation = CardDefaults.cardElevation(
+                        defaultElevation = 1.dp
+                    ),
+                    colors = CardDefaults.cardColors(
+                        contentColor = MaterialTheme.colorScheme.onBackground,
+                        containerColor = MaterialTheme.colorScheme.background
+                    ),
+                    shape = RoundedCornerShape(size = 15.dp)
                 ) {
 
-                    GenericText(
-                        text = "ID PERMISO",
-                        sp = 14,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.scrim,
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-                    GenericText(
-                        text = "Permiso de prueba a realizar",
-                        sp = 12,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                            .padding(top = 10.dp)
-                    )
-                    GenericText(
-                        text = "Area",
-                        sp = 12,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onBackground,
-                        modifier = Modifier
-                            .padding(top = 10.dp)
-                    )
 
-                    Row(modifier = Modifier.padding(top = 10.dp)) {
+                    Column(
+                        Modifier
+                            .background(brush = gradient)
+                            .height(150.dp)
+                            .padding(start = 10.dp)
+                            .fillMaxWidth()
+                    ) {
                         GenericText(
-                            text = "APROBADO",
-                            sp = 12,
+                            text = ID,
+                            sp = 15,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onBackground,
-                            modifier = null
+                            color = MaterialTheme.colorScheme.scrim,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
-                        GenericText(
-                            text = "|20/05/2023",
-                            sp = 12,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onBackground,
-                            modifier = null
-                        )
+
+                        Row(verticalAlignment = Alignment.CenterVertically
+                            ) {
+                            Box() {
+
+                                GenericText(
+                                    text = Descripcion[index],
+                                    sp = 13,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier
+                                        .padding(top = 10.dp)
+                                )
+                                GenericText(
+                                    text = Area[index],
+                                    sp = 13,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onBackground,
+                                    modifier = Modifier
+                                        .padding(top = 40.dp)
+                                )
+                            }
+
+                            if (Status[index] == "Aprobado") {
+
+                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                                    Icon(
+                                        Icons.Filled.Done,
+                                        contentDescription = "Check Icon",
+                                        modifier = Modifier.size(40.dp)
+                                    )
+                                }
+
+                            } else if (Status[index] == "Cancelado") {
+
+                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                                    Icon(
+                                        Icons.Filled.Close,
+                                        contentDescription = "Cancel Icon",
+                                        modifier = Modifier.size(40.dp)
+                                    )
+                                }
+
+                            } else if(Status[index] == "Revisado"){
+
+                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                                    Icon(
+                                        Icons.Filled.Search,
+                                        contentDescription = "Search Icon",
+                                        modifier = Modifier.size(40.dp)
+                                    )
+                                }
+
+                            }else {
+
+                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                                    Icon(
+                                        Icons.Filled.Search,
+                                        contentDescription = "Check Icon",
+                                        modifier = Modifier.size(40.dp)
+                                    )
+                                }
+
+                            }
+                        }
+
+                        Row(modifier = Modifier.padding(top = 5.dp)) {
+                            if (Status[index] == "Aprobado") {
+                                GenericText(
+                                    text = Status[index],
+                                    sp = 13,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = null
+                                )
+                            } else if (Status[index] == "Cancelado") {
+                                GenericText(
+                                    text = Status[index],
+                                    sp = 13,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = null
+                                )
+                            } else {
+                                GenericText(
+                                    text = Status[index],
+                                    sp = 13,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.surfaceVariant,
+                                    modifier = null
+                                )
+                            }
+
+                            GenericText(
+                                text = "|" + Date[index],
+                                sp = 13,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onBackground,
+                                modifier = null
+                            )
+                        }
+
+
                     }
+
 
                 }
             }
