@@ -54,8 +54,8 @@ fun DropDownsRiskActivitiesMeasures(
             shape = RoundedCornerShape(15.dp),
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = MaterialTheme.colorScheme.onBackground,
-                focusedBorderColor = MaterialTheme.colorScheme.secondary,
-                unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+                focusedBorderColor = MaterialTheme.colorScheme.primary,
+                unfocusedBorderColor = MaterialTheme.colorScheme.primary,
                 focusedLabelColor = MaterialTheme.colorScheme.onBackground,
                 cursorColor = MaterialTheme.colorScheme.onBackground
             ),

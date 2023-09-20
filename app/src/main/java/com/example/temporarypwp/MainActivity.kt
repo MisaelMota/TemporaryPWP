@@ -30,8 +30,8 @@ class MainActivity : ComponentActivity() {
                     //ControlRequirements()
                     //ResponseHistory()
                     //PermissionsDetail()
-                    //PermissionHistory()
-                    RiskActivitiesMeasures()
+                    PermissionHistory()
+                    //RiskActivitiesMeasures()
                    // WelcomeUser()
                     //Login()
                 }
