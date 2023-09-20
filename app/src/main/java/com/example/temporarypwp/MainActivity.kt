@@ -31,9 +31,9 @@ class MainActivity : ComponentActivity() {
                     //ResponseHistory()
                     //PermissionsDetail()
                     //PermissionHistory()
-                    //RiskActivitiesMeasures()
-                    //WelcomeUser()
-                    Login()
+                    RiskActivitiesMeasures()
+                   // WelcomeUser()
+                    //Login()
                 }
             }
         }

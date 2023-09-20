@@ -107,7 +107,8 @@ fun RiskActivitiesMeasures() {
             filteredOptions = filteredOptions,
             width = 340,
             height = 60,
-            title = "Introduca la actividad a realizar"
+            title = "Introduca la actividad a realizar",
+            paddingStart = 5
         )
 
     }
@@ -126,26 +127,30 @@ fun RiskActivitiesMeasures() {
                     selectedOption = selectedOption2,
                     filteredOptions = filteredOptions2,
                     width = 150,
-                    height = 52,
-                    title = "Riesgo"
+                    height = 58,
+                    title = "Riesgo",
+                    paddingStart = 15
                 )
                 DropDownsRiskActivitiesMeasures(
                     expanded = expanded3,
                     selectedOption = selectedOption3,
                     filteredOptions = filteredOptions3,
                     width = 150,
-                    height = 52,
-                    title = "Riesgo"
+                    height = 58,
+                    title = "Riesgo",
+                    paddingStart = 15
                 )
                 DropDownsRiskActivitiesMeasures(
                     expanded = expanded4,
                     selectedOption = selectedOption4,
                     filteredOptions = filteredOptions4,
                     width = 150,
-                    height = 52,
-                    title = "Riesgo"
+                    height = 58,
+                    title = "Riesgo",
+                    paddingStart = 15
                 )
             }
+
 
             Column(Modifier.weight(1f)) {
                 DropDownsRiskActivitiesMeasures(
@@ -153,52 +158,58 @@ fun RiskActivitiesMeasures() {
                     selectedOption = selectedOption5,
                     filteredOptions = filteredOptions5,
                     width = 150,
-                    height = 52,
-                    title = "Nivel"
+                    height = 58,
+                    title = "Nivel",
+                    paddingStart = 25
                 )
                 DropDownsRiskActivitiesMeasures(
                     expanded = expanded6,
                     selectedOption = selectedOption6,
                     filteredOptions = filteredOptions6,
                     width = 150,
-                    height = 52,
-                    title = "Nivel"
+                    height = 58,
+                    title = "Nivel",
+                    paddingStart = 25
                 )
                 DropDownsRiskActivitiesMeasures(
                     expanded = expanded7,
                     selectedOption = selectedOption7,
                     filteredOptions = filteredOptions7,
                     width = 150,
-                    height = 52,
-                    title = "Nivel"
+                    height = 58,
+                    title = "Nivel",
+                    paddingStart = 25
                 )
             }
         }
 
-        Column(modifier =Modifier.padding(top=160.dp)) {
+        Column(modifier = Modifier.padding(top = 180.dp)) {
             DropDownsRiskActivitiesMeasures(
                 expanded = expanded8,
                 selectedOption = selectedOption8,
                 filteredOptions = filteredOptions8,
                 width = 340,
-                height = 52,
-                title = "Medidas preventivas"
+                height = 58,
+                title = "Medidas preventivas",
+                paddingStart = 60
             )
             DropDownsRiskActivitiesMeasures(
                 expanded = expanded9,
                 selectedOption = selectedOption9,
                 filteredOptions = filteredOptions9,
                 width = 340,
-                height = 52,
-                title = "Medidas preventivas"
+                height = 58,
+                title = "Medidas preventivas",
+                paddingStart = 60
             )
             DropDownsRiskActivitiesMeasures(
                 expanded = expanded10,
                 selectedOption = selectedOption10,
                 filteredOptions = filteredOptions10,
                 width = 340,
-                height = 52,
-                title = "Medidas preventivas"
+                height = 58,
+                title = "Medidas preventivas",
+                paddingStart = 60
             )
         }
     }
@@ -206,7 +217,7 @@ fun RiskActivitiesMeasures() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 580.dp),
+            .padding(top = 610.dp),
         contentAlignment = Alignment.TopCenter
     ) {
         GenericDivider(thickness = 1, color = MaterialTheme.colorScheme.secondary)
@@ -216,7 +227,7 @@ fun RiskActivitiesMeasures() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 150.dp),
+            .padding(bottom = 130.dp),
         contentAlignment = Alignment.BottomCenter
 
     ) {
@@ -241,22 +252,21 @@ fun RiskActivitiesMeasures() {
     ) {
         GenericButton(
             onClick = { /*TODO*/ },
-            colors =ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary) ,
-            height =38 ,
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
+            height = 38,
             width = 115,
             text = "Cancelar",
             imagePainter = null
         )
         GenericButton(
             onClick = { /*TODO*/ },
-            colors =ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiary) ,
-            height =38,
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiary),
+            height = 38,
             width = 115,
             text = "Siguiente",
             imagePainter = null
         )
     }
-
 
 
 }

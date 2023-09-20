@@ -242,6 +242,32 @@ fun PermissionHistory() {
                     }
 
 
+                    Row(
+                        modifier = Modifier
+                            .padding(top=60.dp, start = 30.dp,end=30.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.Bottom
+
+                    ) {
+                        GenericButton(
+                            onClick = { /*TODO*/ },
+                            colors =ButtonDefaults.buttonColors(containerColor = Color.Unspecified) ,
+                            height =100 ,
+                            width = 100,
+                            text = null,
+                            imagePainter = R.drawable.bell_navbar
+                        )
+                        GenericButton(
+                            onClick = { /*TODO*/ },
+                            colors =ButtonDefaults.buttonColors(containerColor = Color.Unspecified) ,
+                            height =100,
+                            width = 100,
+                            text = null,
+                            imagePainter = R.drawable.home_navbar
+                        )
+                    }
+
+
                 }
             }
         }
