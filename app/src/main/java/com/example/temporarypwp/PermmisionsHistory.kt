@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,22 +16,17 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Done
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.outlined.Close
-import androidx.compose.material.icons.outlined.Done
-import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.temporarypwp.Components.GenericButton
@@ -51,8 +45,9 @@ fun PermissionHistory() {
         "Permiso de prueba",
         "Permiso de prueba"
     )
-    val Area = listOf("Operaciones", "Envase", "Horno", "Mantenimiento", "Mantenimiento", "Mantenimiento")
-    val Status = listOf("Aprobado", "Cancelado", "Revisado", "Cancelado", "Cancelado","Pendiente")
+    val Area =
+        listOf("Operaciones", "Envase", "Horno", "Mantenimiento", "Mantenimiento", "Mantenimiento")
+    val Status = listOf("Aprobado", "Cancelado", "Revisado", "Cancelado", "Cancelado", "Pendiente")
     val Date = listOf("12/02/23", "12/02/23", "12/02/23", "12/02/23", "12/02/23", "12/02/23")
 
     val gradient = Brush.verticalGradient(
@@ -142,8 +137,9 @@ fun PermissionHistory() {
                             modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
 
-                        Row(verticalAlignment = Alignment.CenterVertically
-                            ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
                             Box() {
 
                                 GenericText(
@@ -166,7 +162,7 @@ fun PermissionHistory() {
 
                             if (Status[index] == "Aprobado") {
 
-                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                                Box(modifier = Modifier.padding(start = 150.dp, top = 32.dp)) {
                                     Icon(
                                         Icons.Filled.Done,
                                         contentDescription = "Check Icon",
@@ -176,7 +172,7 @@ fun PermissionHistory() {
 
                             } else if (Status[index] == "Cancelado") {
 
-                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                                Box(modifier = Modifier.padding(start = 150.dp, top = 32.dp)) {
                                     Icon(
                                         Icons.Filled.Close,
                                         contentDescription = "Cancel Icon",
@@ -184,21 +180,20 @@ fun PermissionHistory() {
                                     )
                                 }
 
-                            } else if(Status[index] == "Revisado"){
+                            } else if (Status[index] == "Revisado") {
 
-                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                                Box(modifier = Modifier.padding(start = 150.dp, top = 32.dp)) {
                                     Icon(
-                                        Icons.Filled.Search,
+                                        painterResource(id = R.drawable.description_icon),
                                         contentDescription = "Search Icon",
                                         modifier = Modifier.size(40.dp)
                                     )
                                 }
 
-                            }else {
-
-                                Box(modifier = Modifier.padding(start= 150.dp, top = 32.dp)) {
+                            } else {
+                                Box(modifier = Modifier.padding(start = 150.dp, top = 32.dp)) {
                                     Icon(
-                                        Icons.Filled.Search,
+                                       painterResource(id = R.drawable.schedule_icon),
                                         contentDescription = "Check Icon",
                                         modifier = Modifier.size(40.dp)
                                     )

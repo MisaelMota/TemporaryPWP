@@ -11,8 +11,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,8 +34,10 @@ import com.example.temporarypwp.Components.GenericText
 @Composable
 fun PermissionsDetail() {
 
-    val CardText = listOf("Trabajo realizado:","Estado de permiso:", "Autorizado por:", "Fecha y Hora:")
-    val CardTextResponse = listOf("Pruebe de pruebas","Aprobado", "Fulanito De Tal", "12/02/23 : 5:13PM")
+    val CardText =
+        listOf("Trabajo realizado:", "Estado de permiso:", "Autorizado por:", "Fecha y Hora:")
+    val CardTextResponse =
+        listOf("Pruebe de pruebas", "Aprobado", "Fulanito De Tal", "12/02/23 : 5:13PM")
 
     Box(
         modifier = Modifier
@@ -99,13 +106,14 @@ fun PermissionsDetail() {
                         containerColor = MaterialTheme.colorScheme.background
                     ),
                     shape = RoundedCornerShape(size = 26.dp)
-                ){
+                ) {
                     Column(
                         modifier = Modifier
                             .padding(start = 20.dp)
                             .size(257.dp, 63.dp),
                         verticalArrangement = Arrangement.Center
                     ) {
+
                         GenericText(
                             text = cardText,
                             sp = 14,
@@ -113,13 +121,57 @@ fun PermissionsDetail() {
                             color = MaterialTheme.colorScheme.onBackground,
                             modifier = null
                         )
-                        GenericText(
-                            text = CardTextResponse[index],
-                            sp = 14,
-                            fontWeight = FontWeight.Normal,
-                            color = MaterialTheme.colorScheme.onBackground,
-                            modifier = null
-                        )
+
+                        if (CardTextResponse[index] == "Aprobado") {
+
+                            GenericText(
+                                text = CardTextResponse[index],
+                                sp = 14,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.Green,
+                                modifier = null
+                            )
+
+                        } else if (CardTextResponse[index] == "Cancelado") {
+
+                            GenericText(
+                                text = CardTextResponse[index],
+                                sp = 14,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.Red,
+                                modifier = null
+                            )
+
+                        } else if (CardTextResponse[index] == "Revisado") {
+
+                            GenericText(
+                                text = CardTextResponse[index],
+                                sp = 14,
+                                fontWeight = FontWeight.Normal,
+                                color = MaterialTheme.colorScheme.surfaceVariant,
+                                modifier = null
+                            )
+
+                        } else if (CardTextResponse[index] == "Pendiente") {
+
+                            GenericText(
+                                text = CardTextResponse[index],
+                                sp = 14,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.Blue,
+                                modifier = null
+                            )
+
+                        } else {
+                            GenericText(
+                                text = CardTextResponse[index],
+                                sp = 14,
+                                fontWeight = FontWeight.Normal,
+                                color = MaterialTheme.colorScheme.onBackground,
+                                modifier = null
+                            )
+                        }
+
 
                     }
                 }
