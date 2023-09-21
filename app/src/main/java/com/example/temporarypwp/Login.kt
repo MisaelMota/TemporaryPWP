@@ -18,6 +18,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -81,7 +82,7 @@ fun Login() {
         GenericCard(
             modifier = Modifier
                 .padding(bottom = 20.dp)
-                .width(267.dp)
+                .width(310.dp)
                 .height(418.dp),
             elevation = CardDefaults.cardElevation(
                 defaultElevation = 1.dp
@@ -93,61 +94,53 @@ fun Login() {
             shape = RoundedCornerShape(size = 30.dp)
         ) {
             Box(
-                modifier = Modifier.padding(start = 20.dp, top = 20.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp, start = 20.dp),
                 contentAlignment = Alignment.TopStart
             ) {
                 GenericText(
                     text = "Login",
                     sp = 24,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.secondary,
+                    color = MaterialTheme.colorScheme.primary,
                     modifier = null
                 )
             }
 
 
-            Column(modifier = Modifier.padding(top = 50.dp, start = 20.dp)) {
-                GenericText(
-                    text = "Usuario:",
-                    sp = 16,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Bold,
-                    modifier = null
-                )
-
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 50.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 OutlinedTextField(
                     value = userEmail.value,
                     onValueChange = { userEmail.value = it },
                     modifier = Modifier
                         .width(221.dp)
-                        .height(50.dp),
+                        .height(55.dp),
                     shape = RoundedCornerShape(30.dp),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
-                        focusedBorderColor = MaterialTheme.colorScheme.secondary,
-                        unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        unfocusedBorderColor = MaterialTheme.colorScheme.primary,
                         cursorColor = MaterialTheme.colorScheme.onBackground
-                    )
+                    ),
+                    placeholder = { Text(text = "Usuario")}
                 )
                 Spacer(modifier = Modifier.padding(top = 20.dp))
-
-                GenericText(
-                    text = "Contraseña:",
-                    sp = 16,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Bold,
-                    modifier = null
-                )
 
                 OutlinedTextField(
                     value = password.value,
                     onValueChange = { password.value = it },
                     modifier = Modifier
                         .width(221.dp)
-                        .height(50.dp),
+                        .height(55.dp),
                     shape = RoundedCornerShape(30.dp),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
-                        focusedBorderColor = MaterialTheme.colorScheme.secondary,
-                        unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        unfocusedBorderColor = MaterialTheme.colorScheme.primary,
                         cursorColor = MaterialTheme.colorScheme.onBackground
                     ),
                     visualTransformation = if (passwordVisibility) {
@@ -167,22 +160,24 @@ fun Login() {
                             }
                             Icon(painter = icon, contentDescription = "Visibilidad de contraseña")
                         }
-                    }
+                    },
+                    placeholder = { Text(text = "Contraseña")}
 
                 )
-
-
 
 
             }
             Spacer(modifier = Modifier.padding(top = 20.dp))
             Box(
-                modifier = Modifier.padding(start = 50.dp,),
-                contentAlignment = Alignment.BottomCenter) {
+
+                modifier = Modifier
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
                 GenericButton(
                     onClick = { /*TODO*/ },
-                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary) ,
-                    height =40,
+                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
+                    height = 40,
                     width = 158,
                     text = "Login",
                     imagePainter = null
@@ -190,9 +185,15 @@ fun Login() {
 
             }
             Spacer(modifier = Modifier.padding(top = 30.dp))
-            Box(modifier = Modifier.padding(start = 90.dp,),contentAlignment = Alignment.BottomCenter) {
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
 
-                Image(painter = painterResource(id = R.drawable.cemex_logo_login), contentDescription ="Cemex Logo" )
+                Image(
+                    painter = painterResource(id = R.drawable.cemex_logo_login),
+                    contentDescription = "Cemex Logo"
+                )
             }
 
         }

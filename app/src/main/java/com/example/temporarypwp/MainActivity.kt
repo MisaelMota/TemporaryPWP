@@ -30,10 +30,11 @@ class MainActivity : ComponentActivity() {
                     //ControlRequirements()
                     //ResponseHistory()
                     //PermissionsDetail()
-                    PermissionHistory()
+                    //PermissionHistory()
                     //RiskActivitiesMeasures()
                    // WelcomeUser()
                     //Login()
+                    TabScreen()
                 }
             }
         }

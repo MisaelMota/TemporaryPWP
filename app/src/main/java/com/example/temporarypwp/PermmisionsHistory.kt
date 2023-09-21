@@ -49,6 +49,7 @@ fun PermissionHistory() {
         listOf("Operaciones", "Envase", "Horno", "Mantenimiento", "Mantenimiento", "Mantenimiento")
     val Status = listOf("Aprobado", "Cancelado", "Revisado", "Cancelado", "Cancelado", "Pendiente")
     val Date = listOf("12/02/23", "12/02/23", "12/02/23", "12/02/23", "12/02/23", "12/02/23")
+    val flags = listOf(1, 2, 3, 4, 1)
 
     val gradient = Brush.verticalGradient(
         colorStops = arrayOf(
@@ -129,16 +130,31 @@ fun PermissionHistory() {
                             .padding(start = 10.dp)
                             .fillMaxWidth()
                     ) {
-                        GenericText(
-                            text = ID,
-                            sp = 15,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.scrim,
-                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(end = 10.dp),
+                            horizontalArrangement = Arrangement.End,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            GenericText(
+                                text = ID,
+                                sp = 15,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.scrim,
+                                modifier = null
+                            )
+                            Icon(
+                                painterResource(id = R.drawable.colombia_flag),
+                                contentDescription = "flag Icon",
+                                modifier = Modifier.padding(start = 10.dp),
+                                tint = Color.Unspecified
+                            )
+                        }
 
                         Row(
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
                         ) {
                             Box() {
 
@@ -193,7 +209,7 @@ fun PermissionHistory() {
                             } else {
                                 Box(modifier = Modifier.padding(start = 150.dp, top = 32.dp)) {
                                     Icon(
-                                       painterResource(id = R.drawable.schedule_icon),
+                                        painterResource(id = R.drawable.schedule_icon),
                                         contentDescription = "Check Icon",
                                         modifier = Modifier.size(40.dp)
                                     )
@@ -206,7 +222,7 @@ fun PermissionHistory() {
                             if (Status[index] == "Aprobado") {
                                 GenericText(
                                     text = Status[index],
-                                    sp = 13,
+                                    sp = 15,
                                     fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.primary,
                                     modifier = null
@@ -214,7 +230,7 @@ fun PermissionHistory() {
                             } else if (Status[index] == "Cancelado") {
                                 GenericText(
                                     text = Status[index],
-                                    sp = 13,
+                                    sp = 15,
                                     fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.secondary,
                                     modifier = null
@@ -222,7 +238,7 @@ fun PermissionHistory() {
                             } else {
                                 GenericText(
                                     text = Status[index],
-                                    sp = 13,
+                                    sp = 15,
                                     fontWeight = FontWeight.Bold,
                                     color = MaterialTheme.colorScheme.surfaceVariant,
                                     modifier = null
@@ -244,23 +260,23 @@ fun PermissionHistory() {
 
                     Row(
                         modifier = Modifier
-                            .padding(top=60.dp, start = 30.dp,end=30.dp),
+                            .padding(top = 60.dp, start = 30.dp, end = 30.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.Bottom
 
                     ) {
                         GenericButton(
                             onClick = { /*TODO*/ },
-                            colors =ButtonDefaults.buttonColors(containerColor = Color.Unspecified) ,
-                            height =100 ,
+                            colors = ButtonDefaults.buttonColors(containerColor = Color.Unspecified),
+                            height = 100,
                             width = 100,
                             text = null,
                             imagePainter = R.drawable.bell_navbar
                         )
                         GenericButton(
                             onClick = { /*TODO*/ },
-                            colors =ButtonDefaults.buttonColors(containerColor = Color.Unspecified) ,
-                            height =100,
+                            colors = ButtonDefaults.buttonColors(containerColor = Color.Unspecified),
+                            height = 100,
                             width = 100,
                             text = null,
                             imagePainter = R.drawable.home_navbar
