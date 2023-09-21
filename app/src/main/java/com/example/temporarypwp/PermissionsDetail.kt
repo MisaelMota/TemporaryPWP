@@ -54,7 +54,7 @@ fun PermissionsDetail() {
     val CardText =
         listOf("Trabajo realizado:", "Estado de permiso:", "Autorizado por:", "Fecha y Hora:")
     val CardTextResponse =
-        listOf("Pruebe de pruebas", "Aprobado", "Fulanito De Tal", "12/02/23 : 5:13PM")
+        listOf("Pruebe de pruebas", "Revisado", "Fulanito De Tal", "12/02/23 : 5:13PM")
 
 
     /* Box(
@@ -113,7 +113,7 @@ fun PermissionsDetail() {
                                 text = CardTextResponse[index],
                                 sp = 14,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.Green,
+                                color = Color(0xFF24C964),
                                 modifier = null
                             )
 
@@ -133,7 +133,7 @@ fun PermissionsDetail() {
                                 text = CardTextResponse[index],
                                 sp = 14,
                                 fontWeight = FontWeight.Normal,
-                                color = MaterialTheme.colorScheme.surfaceVariant,
+                                color = Color(0xFFF5DC11),
                                 modifier = null
                             )
 
@@ -209,7 +209,7 @@ fun TabScreen() {
         }
 
         1 -> {
-            RiskActivitiesMeasures()
+            RiskActivitiesMeasuresDetail()
         }
 
         2 -> {
@@ -227,11 +227,34 @@ fun ControlRequirementsDetail() {
         listOf("Requiere permiso de alto riesgo", "Si"),
         listOf("Requiere bloqueo y etiquetado", "Si"),
         listOf("Requiere acordonamiento y aviso", "Si"),
-        listOf("Requiere permiso de chispa o flama", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+
+    )
+    val data2 = listOf(
+        listOf("Requisito de seguridad", "Respuesta"),
+        listOf("Requiere permiso de alto riesgo", "Si"),
+        listOf("Requiere bloqueo y etiquetado", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+        listOf("Requiere acordonamiento y aviso", "Si"),
+
     )
 
 
-    LazyColumn(modifier =  Modifier.padding(top = 150.dp)) {
+    LazyColumn(
+        modifier =  Modifier
+            .padding(top = 130.dp, bottom = 400.dp)
+
+
+    ) {
         itemsIndexed(data) { index, row ->
             val isHeaderRow = index == 0
             val backgroundColor = if (isHeaderRow) Color.White else Color.White
@@ -257,8 +280,8 @@ fun ControlRequirementsDetail() {
         }
     }
 
-    LazyColumn (modifier =  Modifier.padding(top = 470.dp)){
-        itemsIndexed(data) { index, row ->
+    LazyColumn (modifier =  Modifier.padding(top = 450.dp)){
+        itemsIndexed(data2) { index, row ->
             val isHeaderRow = index == 0
             val backgroundColor = if (isHeaderRow) Color.White else Color.White
             val textColor = if (isHeaderRow) Color.Black else Color.Black
@@ -268,7 +291,7 @@ fun ControlRequirementsDetail() {
                     .background(backgroundColor)
                     .padding(start = 50.dp),
 
-            ) {
+                ) {
                 row.forEach { cell ->
                     Text(
                         text = cell,
@@ -282,6 +305,8 @@ fun ControlRequirementsDetail() {
             }
         }
     }
+
+
 }
 
 @Composable
@@ -292,10 +317,18 @@ fun RiskActivitiesMeasuresDetail() {
         listOf("Requiere bloqueo y etiquetado", "Si"),
         listOf("Requiere acordonamiento y aviso", "Si"),
         listOf("Requiere permiso de chispa o flama", "Si"),
+        listOf("Requiere permiso de chispa o flama", "Si"),
+        listOf("Requiere permiso de chispa o flama", "Si"),
+        listOf("Requiere permiso de chispa o flama", "Si"),
     )
 
 
-    LazyColumn {
+    LazyColumn(
+        modifier =  Modifier
+            .padding(top = 130.dp, bottom = 400.dp)
+
+
+    ) {
         itemsIndexed(data) { index, row ->
             val isHeaderRow = index == 0
             val backgroundColor = if (isHeaderRow) Color.White else Color.White
@@ -306,7 +339,7 @@ fun RiskActivitiesMeasuresDetail() {
                     .background(backgroundColor)
                     .padding(start = 50.dp),
 
-            ) {
+                ) {
                 row.forEach { cell ->
                     Text(
                         text = cell,

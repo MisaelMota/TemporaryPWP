@@ -76,7 +76,7 @@ fun ControlRequirements() {
             .padding(top = 70.dp, bottom = 50.dp),
         contentAlignment = Alignment.TopCenter
     ) {
-        Column() {
+        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             questionControlRequirements.forEach { question ->
                 val selectedOption = selectedOptions[question]
                 GenericCard(
