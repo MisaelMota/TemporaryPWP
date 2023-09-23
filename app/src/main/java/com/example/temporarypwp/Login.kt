@@ -2,6 +2,7 @@ package com.example.temporarypwp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -34,22 +35,53 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.temporarypwp.Components.GenericButton
 import com.example.temporarypwp.Components.GenericCard
 import com.example.temporarypwp.Components.GenericText
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Login() {
 
-    val userEmail = remember { mutableStateOf(TextFieldValue("")) }
-    val password = remember { mutableStateOf(TextFieldValue("")) }
-    var passwordVisibility by remember { mutableStateOf(false) }
+    var loginNFC by remember { mutableStateOf(true) }
+    var conditionalText by remember { mutableStateOf("") }
+
+    conditionalText = if (loginNFC) {
+        LoginNFC()
+        "Pulsa aqui si no tienes NFC"
+    } else {
+        LoginTypical()
+        "Pulsa aqui si tienes NFC"
+    }
+
+
+
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 40.dp),
+        contentAlignment = Alignment.BottomCenter,
+        modifier = Modifier.padding(bottom = 15.dp)
+    ) {
+        Text(
+            text = conditionalText,
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+            color = MaterialTheme.colorScheme.onBackground,
+            modifier = Modifier.clickable { loginNFC = !loginNFC },
+            textAlign = TextAlign.Center,
+            textDecoration = TextDecoration.Underline
+        )
+    }
+
+}
+
+
+@Composable
+fun LoginNFC() {
+
+    Box(
+        modifier = Modifier.padding(top = 250.dp),
         contentAlignment = Alignment.TopCenter
     ) {
         GenericText(
@@ -59,20 +91,41 @@ fun Login() {
             fontWeight = FontWeight.ExtraBold,
             modifier = null
         )
-
     }
 
     Box(
-        Modifier.padding(top = 90.dp),
-        contentAlignment = Alignment.TopCenter
+        //Modifier.padding(top = 90.dp),
+        contentAlignment = Alignment.Center
     ) {
         Image(
+
             painter = painterResource(id = R.drawable.id_card2),
-            contentDescription = "Logo Login"
+            contentDescription = "Logo Login",
+            modifier = Modifier.padding()
         )
     }
 
+    Box(
+        modifier = Modifier.padding(end = 20.dp, start = 20.dp, top = 250.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        GenericText(
+            text = "Tab your personal identification Tag the NFC to the device.",
+            sp = 16,
+            color = MaterialTheme.colorScheme.onBackground,
+            fontWeight = FontWeight.Normal,
+            modifier = null
+        )
+    }
 
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun LoginTypical() {
+    val userEmail = remember { mutableStateOf(TextFieldValue("")) }
+    val password = remember { mutableStateOf(TextFieldValue("")) }
+    var passwordVisibility by remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
@@ -127,7 +180,7 @@ fun Login() {
                         unfocusedBorderColor = MaterialTheme.colorScheme.primary,
                         cursorColor = MaterialTheme.colorScheme.onBackground
                     ),
-                    placeholder = { Text(text = "Usuario")}
+                    placeholder = { Text(text = "Usuario") }
                 )
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
@@ -161,7 +214,7 @@ fun Login() {
                             Icon(painter = icon, contentDescription = "Visibilidad de contraseña")
                         }
                     },
-                    placeholder = { Text(text = "Contraseña")}
+                    placeholder = { Text(text = "Contraseña") }
 
                 )
 

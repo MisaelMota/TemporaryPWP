@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
@@ -70,7 +71,7 @@ fun GenericText(
             color = color,
             fontSize = sp.sp,
             fontWeight = fontWeight,
-            modifier = modifier
+            modifier = modifier,
         )
     }else{
         Text(

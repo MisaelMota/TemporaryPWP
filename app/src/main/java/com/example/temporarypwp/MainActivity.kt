@@ -33,8 +33,8 @@ class MainActivity : ComponentActivity() {
                     //PermissionHistory()
                     //RiskActivitiesMeasures()
                    // WelcomeUser()
-                    //Login()
-                    TabScreen()
+                    Login()
+                    //TabScreen()
                 }
             }
         }

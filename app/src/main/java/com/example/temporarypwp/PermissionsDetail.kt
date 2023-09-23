@@ -133,7 +133,7 @@ fun PermissionsDetail() {
                                 text = CardTextResponse[index],
                                 sp = 14,
                                 fontWeight = FontWeight.Normal,
-                                color = Color(0xFFF5DC11),
+                                color = Color(0xFFDBC617),
                                 modifier = null
                             )
 
@@ -257,7 +257,7 @@ fun ControlRequirementsDetail() {
     ) {
         itemsIndexed(data) { index, row ->
             val isHeaderRow = index == 0
-            val backgroundColor = if (isHeaderRow) Color.White else Color.White
+            val backgroundColor = if (isHeaderRow) Color(0xFFF3F3F3) else Color.White
             val textColor = if (isHeaderRow) Color.Black else Color.Black
 
             Row(
@@ -283,10 +283,10 @@ fun ControlRequirementsDetail() {
     LazyColumn (modifier =  Modifier.padding(top = 450.dp)){
         itemsIndexed(data2) { index, row ->
             val isHeaderRow = index == 0
-            val backgroundColor = if (isHeaderRow) Color.White else Color.White
+            val backgroundColor = if (isHeaderRow) Color(0xFFF3F3F3) else Color.White
             val textColor = if (isHeaderRow) Color.Black else Color.Black
-
             Row(
+
                 modifier = Modifier
                     .background(backgroundColor)
                     .padding(start = 50.dp),
@@ -325,13 +325,14 @@ fun RiskActivitiesMeasuresDetail() {
 
     LazyColumn(
         modifier =  Modifier
-            .padding(top = 130.dp, bottom = 400.dp)
+            .padding(top = 130.dp, bottom = 200.dp)
+
 
 
     ) {
         itemsIndexed(data) { index, row ->
             val isHeaderRow = index == 0
-            val backgroundColor = if (isHeaderRow) Color.White else Color.White
+            val backgroundColor = if (isHeaderRow) Color(0xFFF3F3F3) else Color.White
             val textColor = if (isHeaderRow) Color.Black else Color.Black
 
             Row(

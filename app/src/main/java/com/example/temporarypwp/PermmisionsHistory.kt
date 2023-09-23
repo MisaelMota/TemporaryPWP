@@ -144,12 +144,39 @@ fun PermissionHistory() {
                                 color = MaterialTheme.colorScheme.scrim,
                                 modifier = null
                             )
-                            Icon(
-                                painterResource(id = R.drawable.colombia_flag),
-                                contentDescription = "flag Icon",
-                                modifier = Modifier.padding(start = 10.dp),
-                                tint = Color.Unspecified
-                            )
+                           if (flags[index]==1)
+                           {
+                               Icon(
+                                   painterResource(id = R.drawable.colombia_flag),
+                                   contentDescription = "flag Icon",
+                                   modifier = Modifier.padding(start = 10.dp),
+                                   tint = Color.Unspecified
+                               )
+                           } else if (flags[index]==2){
+                               Icon(
+                                   painterResource(id = R.drawable.dominican_republic_flag),
+                                   contentDescription = "flag Icon",
+                                   modifier = Modifier.padding(start = 10.dp),
+                                   tint = Color.Unspecified
+                               )
+
+                           }else if (flags[index]==3){
+                               Icon(
+                                   painterResource(id = R.drawable.puerto_flag),
+                                   contentDescription = "flag Icon",
+                                   modifier = Modifier.padding(start = 10.dp),
+                                   tint = Color.Unspecified
+                               )
+
+                           }else{
+                               Icon(
+                                   painterResource(id = R.drawable.panama_flag),
+                                   contentDescription = "flag Icon",
+                                   modifier = Modifier.padding(start = 10.dp),
+                                   tint = Color.Unspecified
+                               )
+
+                           }
                         }
 
                         Row(
